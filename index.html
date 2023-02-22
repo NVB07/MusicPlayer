@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+    <link rel="stylesheet" href="./acssets/style/style.css">
+    <link rel="stylesheet" href="./acssets/style/responsive.css">
+    <link rel="shortcut icon" href="./acssets/image/icons8-headphones-100.png" type="image/x-icon">
+    <title>Âm nhạc là music !</title>
+</head>
+<body>
+    <div class="container" >
+        <div class="main-bg" >
+            <div class="main-bg-filter">
+            </div>
+            <div class="main">
+                <div class="main-app">
+                    <div class="tools-bar">
+                        <div class="theme-icon">
+                            <i class="fa-solid fa-paint-roller"></i>
+                        </div>
+                    </div>
+                    <div class="cur-playing">
+                    </div>
+                    <div class="track">
+                        <input type="range" name="playing" id="progress" value="0" min="0" step="1" max="100">
+                        <div class="loader"></div>
+                    </div>
+
+                    <div class="time">
+                        <span class="curTime" ></span>
+                        <span class="sumTime" > </span>
+                    </div>
+                    <div class="control">
+                        <div class="nomal-control">
+                            <div class="item prev">
+                                <i class="fa-solid fa-backward-step"></i>
+                            </div>
+                            <div class="item play-pause">
+                                <i class="fa-solid fa-play btn-play"></i>
+                                <i class="fa-solid fa-pause btn-pause dp-none"></i>
+                            </div>
+                            <div class="item next">
+                                <i class="fa-solid fa-forward-step"></i>
+                            </div>
+                        </div>
+                        <div class="advan-control">
+                            <i title="repeat" class="fa-solid fa-repeat btn repeat"></i>
+                            <i title="shuffle" class="fa-solid fa-shuffle btn shuffle"></i>
+                        </div>
+                    </div>
+                    <div class="list-player">
+                        <div class="column">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <audio src="" id="audio"></audio>
+    </div>
+
+    <script src="./acssets/JS/app.js"></script>
+    <!-- <script src="./acssets/JS/app2.js"></script> -->
+</body>
+</html>

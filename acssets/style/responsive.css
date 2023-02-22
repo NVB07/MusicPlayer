@@ -1,0 +1,59 @@
+
+@media ((min-width: 1025px)) {
+    .cur-img{
+        width: 300px;
+        height: 250px;
+    }
+    .main-app{
+        padding: 20px 80px;
+    }
+    .song{
+        width: 500px;
+    }
+  }
+@media ((min-width: 961px) and (max-width: 1024px)) {
+    .main-app{
+        padding: 20px 50px;
+    }
+    .song{
+        width: 400px;
+        margin: 7px;
+    }
+    .column{
+        justify-content: center;
+    }
+  }
+
+@media (max-width: 960px) {
+    .song{
+        width: 100%;
+        margin: 7px 0;
+    }
+  }
+
+
+  @media ((min-width: 481px) and  (max-width : 767px)) {
+    .main-app{
+        padding: 20px 20px;
+    }
+    .song{
+        width: 100%;
+        margin: 7px 0;
+    }
+  }
+@media (max-width : 480px) {
+    .main-app{
+        padding: 10px 10px;
+    }
+    .cur-playing{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .cur-img{
+        width: 80%;
+    }
+    .song{
+        width: 100%;
+        margin: 7px 0;
+    }
+}
