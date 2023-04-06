@@ -210,19 +210,19 @@ const handleTimes={
         audio.ontimeupdate = function () {
             if (audio.duration) {
               const progressPercent = Math.floor(
-                (audio.currentTime / audio.duration) * 100
+                (audio.currentTime / audio.duration) * 1000
               );
               progress.value = progressPercent ;
-              if(progress.value <45){
-                loader.style.width = progress.value-1.5 +2 +"%";
+              if(progress.value <500){
+                loader.style.width = progress.value/10 +0.5+"%";
                 }
                 else{
-                    loader.style.width = progress.value - 0.5 +"%";
+                    loader.style.width = progress.value/10 - 0.5 +"%";
                 }
             }
           }
         progress.oninput = function (e) {
-            const seekTime = (audio.duration / 100) * e.target.value;
+            const seekTime = (audio.duration / 1000) * e.target.value;
             audio.currentTime = seekTime;
         };
     },
