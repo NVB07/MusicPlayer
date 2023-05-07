@@ -1,6 +1,7 @@
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
+const loading = $('.loading')
 const audio= $('#audio') // get element audio player!
 const progress = $('#progress');// get element input range
 let playing = false; // status 'playing' when first load app
@@ -33,16 +34,33 @@ const hostLink = 'https://raw.githubusercontent.com/NVB07/m3-data/main/acssets/m
 const apiMusic = 'https://raw.githubusercontent.com/NVB07/m3-data/main/package.json';
 
 function start(){
-    getApi((data)=>{
-        const arrayData = data.mp3;
-        mainApp.start(arrayData)
-        handleTimes.onTimeStart()
-    })
+    
+    async function getDataFromAPI() {
+        try {
+          // Hiển thị animation loading
+          loading.style.display = 'flex';
+          
+          // Gọi API và đợi kết quả trả về
+        await getApi((data)=>{
+            const arrayData = data.mp3;
+            mainApp.start(arrayData)
+            handleTimes.onTimeStart()
+        })
+          
+          // Ẩn animation loading và hiển thị dữ liệu trả về
+          loading.style.display = 'none';
+        } catch (error) {
+          console.error(error);
+        }
+    }
+    getDataFromAPI()
+
+    
 }
 start();
 
 function getApi(data) {
-    fetch(apiMusic)
+    return fetch(apiMusic)
         .then(response => response.json())
         .then(data)
         .catch(error => console.error(error));
@@ -74,7 +92,6 @@ const mainApp = {
         bgContainer.style.backgroundImage =`url(${items[currentSong].image}) `
         bgMain.style.backgroundImage = `url(${items[currentSong].image}) `
         async function innerCurSong() {
-            try {
                 curSong.innerHTML = 
                 `
                 <div class="cur-song">
@@ -87,9 +104,6 @@ const mainApp = {
                     <img src="${items[currentSong].image}" alt="" class="drop-img">
                 </div>
                 `
-            } catch (error) {
-              console.error(error);
-            }
           }
           innerCurSong()
         
