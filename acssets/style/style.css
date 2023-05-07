@@ -131,9 +131,12 @@
 .name-song{
     font-size: 30px;
     height: 40px;
+    width: fit-content;
     font-weight: bold;
     margin: 5px 0;
     line-height: 40px;
+    white-space: nowrap;
+    position: relative;
 }
 
 .cur-img{
@@ -209,7 +212,7 @@
 }
 
 .time{
-    margin: 20px 0;
+    margin:0 0 20px;
     width: 100%;
     display: flex;
     justify-content: space-between;
