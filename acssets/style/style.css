@@ -124,13 +124,15 @@
 }
 
 .cur-song{
-
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .name-song{
     font-size: 30px;
+    height: 40px;
     font-weight: bold;
-    margin: 10px auto 15px;
+    margin: 5px 0;
     line-height: 40px;
 }
 
