@@ -73,22 +73,44 @@ const mainApp = {
         audio.src = hostLink + items[currentSong].src;
         bgContainer.style.backgroundImage =`url(${items[currentSong].image}) `
         bgMain.style.backgroundImage = `url(${items[currentSong].image}) `
-        curSong.innerHTML = 
-            `
-            <div class="cur-song">
-                <div class="now">Now playing :</div>
-                <div class="name-song">${items[currentSong].name}</div>
-                <div class="name-singer">${items[currentSong].singer}</div>
-            </div>
-            <div class="cur-img">
-                <img src="${items[currentSong].image}" alt="" class="img">
-                <img src="${items[currentSong].image}" alt="" class="drop-img">
-            </div>
-            `
-
+        async function innerCurSong() {
+            try {
+                curSong.innerHTML = 
+                `
+                <div class="cur-song">
+                    <div class="now">Now playing :</div>
+                    <div class="name-song">${items[currentSong].name}</div>
+                    <div class="name-singer">${items[currentSong].singer}</div>
+                </div>
+                <div class="cur-img">
+                    <img src="${items[currentSong].image}" alt="" class="img">
+                    <img src="${items[currentSong].image}" alt="" class="drop-img">
+                </div>
+                `
+            } catch (error) {
+              console.error(error);
+            }
+          }
+          innerCurSong()
+        
         //add class 'now-play' for first song
         
         listSong[currentSong].classList.add('now-play')
+        //
+        let widthBoxText = $('.cur-song').offsetWidth
+        let textsong = $('.name-song')
+        if(textsong.offsetWidth > widthBoxText){
+            let translate = [
+                { left: `${(textsong.offsetWidth )}px` },
+                { left:`${-(textsong.offsetWidth )}px` },
+              ];
+              
+            let translateTimming = {
+            duration:textsong.offsetWidth*10 + 10000,
+            iterations: Infinity,
+            };
+            textsong.animate(translate, translateTimming);
+        }
     },
     handleEvents: function(array){
         theme.onclick =()=>{
@@ -265,4 +287,5 @@ const handleTimes={
         this.getDurationTimes()
     }
 }
+
 
