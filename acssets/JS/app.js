@@ -1,8 +1,4 @@
 "use strict";
-var xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://example.com/api/data.json');
-xhr.setRequestHeader('Content-Type', 'application/json');
-xhr.send();
 
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
